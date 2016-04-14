@@ -27,7 +27,7 @@ public class PerformanceStatisticsAsset {
     /**
      * @param args the command line arguments
      */
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         //This class is included for testing purposes
         DataController dataController = new DataController();
         
@@ -38,5 +38,5 @@ public class PerformanceStatisticsAsset {
         
         // Close java VM
         System.exit(0);
-    }*/
+    }
 }
