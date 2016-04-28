@@ -1,7 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package performancestatisticsasset;
 
@@ -49,9 +57,9 @@ public class Outputter {
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
-                                "\t" + df.format(distSet1.distributionSet.get(i).mean) +
-                                "\t" + df.format(distSet1.distributionSet.get(i).stdDev) +
-                                "\t" + df.format(distSet1.distributionSet.get(i).n));
+                                "\t" + df.format(distSet1.distributionSet.get(i).getMean()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getN()));
                         }
                         
                         len = distSet1.distributionSet.size();
@@ -61,9 +69,9 @@ public class Outputter {
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
-                                "\t" + df.format(distSet2.distributionSet.get(i).mean) +
-                                "\t" + df.format(distSet2.distributionSet.get(i).stdDev) +
-                                "\t" + df.format(distSet2.distributionSet.get(i).n));
+                                "\t" + df.format(distSet2.distributionSet.get(i).getMean()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getN()));
                         }
                     } break;
                     case "Task" : {
@@ -77,9 +85,9 @@ public class Outputter {
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
-                                "\t" + df.format(distSet1.distributionSet.get(i).mean) +
-                                "\t" + df.format(distSet1.distributionSet.get(i).stdDev) +
-                                "\t" + df.format(distSet1.distributionSet.get(i).n));
+                                "\t" + df.format(distSet1.distributionSet.get(i).getMean()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getN()));
                         }
                         
                         len = distSet1.distributionSet.size();
@@ -89,9 +97,9 @@ public class Outputter {
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
-                                "\t" + df.format(distSet2.distributionSet.get(i).mean) +
-                                "\t" + df.format(distSet2.distributionSet.get(i).stdDev) +
-                                "\t" + df.format(distSet2.distributionSet.get(i).n));
+                                "\t" + df.format(distSet2.distributionSet.get(i).getMean()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getN()));
                         }
                     } break;
                 }
@@ -234,8 +242,8 @@ public class Outputter {
                 for (int i = 0;i<len;i++) {
                     System.out.println(Integer.toString(i+1)+ "\t" +
                         df.format(studTime.dataOverTrials.get(i)) + "\t" +
-                        df.format(groupTime.distributionSet.get(i).mean) + "\t" +
-                        df.format(groupTime.distributionSet.get(i).stdDev));
+                        df.format(groupTime.distributionSet.get(i).getMean()) + "\t" +
+                        df.format(groupTime.distributionSet.get(i).getStdDev()));
                 }
                 System.out.println("Interpretation:");
                 System.out.println(interpretation);
@@ -245,8 +253,8 @@ public class Outputter {
                 for (int i = 0;i<len;i++) {
                     System.out.println(Integer.toString(i+1)+ "\t" +
                         df.format(studPerf.dataOverTrials.get(i)) + "\t" +
-                        df.format(groupPerf.distributionSet.get(i).mean) + "\t" +
-                        df.format(groupPerf.distributionSet.get(i).stdDev));
+                        df.format(groupPerf.distributionSet.get(i).getMean()) + "\t" +
+                        df.format(groupPerf.distributionSet.get(i).getStdDev()));
                 }
                 System.out.println("Interpretation:");
                 System.out.println(interpretation);

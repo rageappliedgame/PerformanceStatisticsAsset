@@ -1,6 +1,4 @@
 /*
- * Copyright 2016 GLA.
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,7 +13,8 @@
  */
 package performancestatisticsasset;
 
-import org.apache.commons.math3.stat.inference.TTest;
+
+import org.apache.commons.math3.stat.inference.*;
 
 /**
  *
@@ -34,7 +33,7 @@ public class TaskTaskCompare extends Analysis{
             trials = set2Time.distributionSet.size();
         
         for (int i = 0;i < trials;i++) {
-            if ((set1Time.distributionSet.get(i).n > 1) && (set2Time.distributionSet.get(i).n > 1)) {
+            if ((set1Time.distributionSet.get(i).getN() > 1) && (set2Time.distributionSet.get(i).getN() > 1)) {
                 tempRes = new Result();
                 tempRes.t = tempTest.t(set1Time.distributionSet.get(i),set2Time.distributionSet.get(i));
                 tempRes.p = tempTest.tTest(set1Time.distributionSet.get(i),set2Time.distributionSet.get(i));
@@ -54,7 +53,7 @@ public class TaskTaskCompare extends Analysis{
             trials = set2Perf.distributionSet.size();
         
         for (int i = 0;i < trials;i++) {
-            if ((set1Perf.distributionSet.get(i).n > 1) && (set2Perf.distributionSet.get(i).n > 1)) {
+            if ((set1Perf.distributionSet.get(i).getN() > 1) && (set2Perf.distributionSet.get(i).getN() > 1)) {
                 tempRes = new Result();
                 tempRes.t = tempTest.t(set1Perf.distributionSet.get(i),set2Perf.distributionSet.get(i));
                 tempRes.p = tempTest.tTest(set1Perf.distributionSet.get(i),set2Perf.distributionSet.get(i));

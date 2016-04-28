@@ -1,12 +1,9 @@
 /*
- * Copyright 2016 Giel van Lankveld
- * Email: Giel.vanLankveld@ou.nl
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -62,15 +59,15 @@ public class DistributionSet {
                 }
             }
             //Transfer the computed statistics to tempDist
-                tempDist.max = tempStat.getMax();
-                tempDist.min = tempStat.getMin();
-                tempDist.sum = tempStat.getSum();
-                tempDist.variance = tempStat.getVariance();
-                tempDist.mean = tempStat.getMean();
-                tempDist.stdDev = tempStat.getStandardDeviation();
-                tempDist.skewness = tempStat.getSkewness();
-                tempDist.kurtosis = tempStat.getKurtosis();            
-                tempDist.n = tempStat.getN();
+                tempDist.setMax((Double) tempStat.getMax());
+                tempDist.setMin((Double) tempStat.getMin());
+                tempDist.setSum((Double) tempStat.getSum());
+                tempDist.setVariance((Double) tempStat.getVariance());
+                tempDist.setMean((Double) tempStat.getMean());
+                tempDist.setStdDev((Double) tempStat.getStandardDeviation());
+                tempDist.setSkewness((Double) tempStat.getSkewness());
+                tempDist.setKurtosis((Double) tempStat.getKurtosis());            
+                tempDist.setN((Long) tempStat.getN());
                 
                 //Add tempDist to distributionSet
                 distributionSet.add(tempDist);
@@ -103,15 +100,15 @@ public class DistributionSet {
                 }
             }
             //Transfer the computed statistics to tempDist
-                tempDist.max = tempStat.getMax();
-                tempDist.min = tempStat.getMin();
-                tempDist.sum = tempStat.getSum();
-                tempDist.variance = tempStat.getVariance();
-                tempDist.mean = tempStat.getMean();
-                tempDist.stdDev = tempStat.getStandardDeviation();
-                tempDist.skewness = tempStat.getSkewness();
-                tempDist.kurtosis = tempStat.getKurtosis();            
-                tempDist.n = tempStat.getN();
+                tempDist.setMax((Double) tempStat.getMax());
+                tempDist.setMin((Double) tempStat.getMin());
+                tempDist.setSum((Double) tempStat.getSum());
+                tempDist.setVariance((Double) tempStat.getVariance());
+                tempDist.setMean((Double) tempStat.getMean());
+                tempDist.setStdDev((Double) tempStat.getStandardDeviation());
+                tempDist.setSkewness((Double) tempStat.getSkewness());
+                tempDist.setKurtosis((Double) tempStat.getKurtosis());            
+                tempDist.setN((Long) tempStat.getN());
                 
                 //Add tempDist to distributionSet
                 distributionSet.add(tempDist);
