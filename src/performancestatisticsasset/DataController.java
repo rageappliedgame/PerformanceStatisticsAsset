@@ -25,8 +25,8 @@ import java.io.InputStreamReader;
  */
 public class DataController {
     //A set of record and associated functions for creation and management
-    private String topic;
-    private String analysisType;
+    private String topic = "Student";
+    private String analysisType = "ProgressOverTrials";
     private File dataSource;
     private RecordList loadedData;
     private PerformanceList studentTime;
@@ -37,13 +37,14 @@ public class DataController {
     private DistributionSet DistributionTwoPerf;
     private ResultSet resultTime;
     private ResultSet resultPerf;
-    private String selectedGame = "Game(A)";
-    private String selectedTask1 = "Task(A)";
-    private String selectedTask2 = "Task(B)";
-    private String selectedPlayer = "Player(A)";
-    private String selectedGroup1 = "Group(A)";
-    private String selectedGroup2 = "Group(B)";
+    private String selectedGame = "Game A";
+    private String selectedTask1 = "Task 1";
+    private String selectedTask2 = "Task 2";
+    private String selectedPlayer = "Student 1";
+    private String selectedGroup1 = "Group 1";
+    private String selectedGroup2 = "Group 2";
     private Outputter outputter;
+    protected String delimiter = ";";
     
     protected void setSelectedGame(String input) {
         selectedGame = input;
@@ -310,8 +311,12 @@ public class DataController {
     
     //Method for loading local gameplay data (backup if server functionality is not available)
     public final RecordList loadDataFromCSV() {
+        //Set default datasource
+        if (dataSource == null)
+            dataSource = new File("c:\\FakeData.csv");
+        
         //Collect the input from the csv
-        if (!"".equals(dataSource) && (dataSource != null)) {
+        if (dataSource != null) {
             if (!"".equals(topic) && !"".equals(analysisType) && (topic != null) && (analysisType != null)) {
                 try (FileReader file = new FileReader(dataSource);
                     BufferedReader buffFile = new BufferedReader(file)){
@@ -328,7 +333,7 @@ public class DataController {
 
                         //Dump the remp string into the temporary record
                         count = 0;
-                        for (String dumpStr: temp.split(",")) {
+                        for (String dumpStr: temp.split(getDelimiter())) {
                             switch (count) {
                                 case 0: tempRec.setGameID(dumpStr); break;
                                 case 1: tempRec.setTaskID(dumpStr); break;
@@ -364,7 +369,7 @@ public class DataController {
                                 // Type specific analysis option selection
                                 switch (analysisType) {
                                     case "ProgressOverTrials" : {
-                                        if (tempRec.getGameID().equals(selectedGame) && tempRec.getTaskID().equals(selectedTask1) && tempRec.getGroupID().equals(selectedGroup1)) {
+                                        if ((tempRec.getGameID().equals(selectedGame) && tempRec.getTaskID().equals(selectedTask1) && tempRec.getGroupID().equals(selectedGroup1))) {
                                             loadedData.records.add(tempRec);
                                         }
                                     } break;
@@ -410,5 +415,19 @@ public class DataController {
         }
         
         return loadedData;
+    }
+
+    /**
+     * @return the delimiter
+     */
+    public String getDelimiter() {
+        return delimiter;
+    }
+
+    /**
+     * @param delimiter the delimiter to set
+     */
+    public void setDelimiter(String delimiter) {
+        this.delimiter = delimiter;
     }
 }
