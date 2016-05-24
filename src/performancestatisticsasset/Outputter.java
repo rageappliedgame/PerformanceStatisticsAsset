@@ -48,57 +48,65 @@ public class Outputter {
                 switch (GroupOrTask) {
                     case "Group" : {
                         //Incoming data is transformed into strings for output
-                        DecimalFormat df = new DecimalFormat("###,###.##");
+                        DecimalFormat df = new DecimalFormat("###,###.###");
                         
                         int len = distSet1.distributionSet.size();
                         System.out.println("Performed analysis: " + targetGroup + " ProgressOverTrials");
                         System.out.println("Time to complete");
-                        System.out.println("Trial\tMean\tSD\tN");
+                        System.out.println("Trial\tMean\tSD\tSkew\tKurt\tN");
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
                                 "\t" + df.format(distSet1.distributionSet.get(i).getMean()) +
                                 "\t" + df.format(distSet1.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getSkewness()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getKurtosis()) +
                                 "\t" + df.format(distSet1.distributionSet.get(i).getN()));
                         }
                         
                         len = distSet1.distributionSet.size();
                         System.out.println();
                         System.out.println("Performance");
-                        System.out.println("Trial\tMean\tSD\tN");
+                        System.out.println("Trial\tMean\tSD\tSkew\tKurt\tN");
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
                                 "\t" + df.format(distSet2.distributionSet.get(i).getMean()) +
                                 "\t" + df.format(distSet2.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getSkewness()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getKurtosis()) +
                                 "\t" + df.format(distSet2.distributionSet.get(i).getN()));
                         }
                     } break;
                     case "Task" : {
                         //Incoming data is transformed into strings for output
-                        DecimalFormat df = new DecimalFormat("###,###.##");
+                        DecimalFormat df = new DecimalFormat("###,###.###");
                         
                         int len = distSet1.distributionSet.size();
                         System.out.println("Performed analysis: " + targetGroup + " Overview");
                         System.out.println("Time to complete");
-                        System.out.println("Trial\tMean\tSD\tN");
+                        System.out.println("Trial\tMean\tSD\tSkew\tKurt\tN");
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
                                 "\t" + df.format(distSet1.distributionSet.get(i).getMean()) +
                                 "\t" + df.format(distSet1.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getSkewness()) +
+                                "\t" + df.format(distSet1.distributionSet.get(i).getKurtosis()) +
                                 "\t" + df.format(distSet1.distributionSet.get(i).getN()));
                         }
                         
                         len = distSet1.distributionSet.size();
                         System.out.println();
                         System.out.println("Performance");
-                        System.out.println("Trial\tMean\tSD\tN");
+                        System.out.println("Trial\tMean\tSD\tSkew\tKurt\tN");
                         //Output results per trial
                         for (int i = 0;i<len;i++) {
                             System.out.println(Integer.toString(i+1) +
                                 "\t" + df.format(distSet2.distributionSet.get(i).getMean()) +
                                 "\t" + df.format(distSet2.distributionSet.get(i).getStdDev()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getSkewness()) +
+                                "\t" + df.format(distSet2.distributionSet.get(i).getKurtosis()) +
                                 "\t" + df.format(distSet2.distributionSet.get(i).getN()));
                         }
                     } break;
@@ -117,7 +125,7 @@ public class Outputter {
                 switch (GroupOrTask) {
                     case "Group" : {
                         //Incoming data is transformed into strings for output
-                        DecimalFormat df = new DecimalFormat("###,###.##");
+                        DecimalFormat df = new DecimalFormat("###,###.###");
 
                         int len = resultSet1.resultSet.size();
                         System.out.println("Performed analysis: " + targetGroup1 + " vs " + targetGroup2 + " GroupCompare");
@@ -150,7 +158,7 @@ public class Outputter {
                     } break;
                     case "Task" : {
                         //Incoming data is transformed into strings for output
-                        DecimalFormat df = new DecimalFormat("###,###.##");
+                        DecimalFormat df = new DecimalFormat("###,###.###");
 
                         int len = resultSet1.resultSet.size();
                         System.out.println("Performed analysis: " + targetGroup1 + " vs " + targetGroup2 + " TaskCompare");
@@ -198,7 +206,7 @@ public class Outputter {
         switch (target) {
             case "Console" : {
                 //Incoming data is transformed into strings for output
-                DecimalFormat df = new DecimalFormat("###,###.##");
+                DecimalFormat df = new DecimalFormat("###,###.###");
                 
                 int len = dataTime.dataOverTrials.size();
                 System.out.println("Performed analysis: " + targetPlayer + " ProgressOverTrials");
@@ -233,28 +241,37 @@ public class Outputter {
         switch (target) {
             case "Console" : {
                 //Incoming data is transformed into strings for output
-                DecimalFormat df = new DecimalFormat("###,###.##");
+                DecimalFormat df = new DecimalFormat("###,###.###");
                 
                 int len = groupTime.size();
                 System.out.println("Performed analysis: " + targetPlayer + " GroupCompare");
                 System.out.println("Time to complete");
-                System.out.println("Trial\tScore\tMean\tSD\t");
+                System.out.println("Trial\tScore\tMean\tSD\tSkew\tKurt\tN");
                 for (int i = 0;i<len;i++) {
                     System.out.println(Integer.toString(i+1)+ "\t" +
                         df.format(studTime.dataOverTrials.get(i)) + "\t" +
                         df.format(groupTime.distributionSet.get(i).getMean()) + "\t" +
-                        df.format(groupTime.distributionSet.get(i).getStdDev()));
+                        df.format(groupTime.distributionSet.get(i).getStdDev()) + "\t" +
+                        df.format(groupTime.distributionSet.get(i).getSkewness()) + "\t" +
+                        df.format(groupTime.distributionSet.get(i).getKurtosis()) + "\t" +
+                        df.format(groupTime.distributionSet.get(i).getN())
+                        );
+                    
                 }
                 System.out.println("Interpretation:");
                 System.out.println(interpretation);
                 System.out.println();
                 System.out.println("Performance");
-                System.out.println("Trial\tScore\tMean\tSD\t");
+                System.out.println("Trial\tScore\tMean\tSD\tSkew\tKurt\tN");
                 for (int i = 0;i<len;i++) {
                     System.out.println(Integer.toString(i+1)+ "\t" +
                         df.format(studPerf.dataOverTrials.get(i)) + "\t" +
                         df.format(groupPerf.distributionSet.get(i).getMean()) + "\t" +
-                        df.format(groupPerf.distributionSet.get(i).getStdDev()));
+                        df.format(groupPerf.distributionSet.get(i).getStdDev()) + "\t" +
+                        df.format(groupPerf.distributionSet.get(i).getSkewness()) + "\t" +
+                        df.format(groupPerf.distributionSet.get(i).getKurtosis()) + "\t" +
+                        df.format(groupPerf.distributionSet.get(i).getN())
+                    );
                 }
                 System.out.println("Interpretation:");
                 System.out.println(interpretation);
