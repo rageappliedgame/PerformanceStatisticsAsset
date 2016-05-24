@@ -99,13 +99,16 @@ public class Distribution extends SummaryStatistics{
         Boolean output = true;
         
         //New N, code guarantees N of 1 or higher
-        Long tmpN = getN();
-        if (tmpN <= 0) {
-            tmpN = 1L;
+        Long tmpNL = getN();
+        
+        if (tmpNL <= 0) {
+            tmpNL = 1L;
         } else {
-            tmpN++;
+            tmpNL++;
         }
-        setN(tmpN);
+        setN(tmpNL);
+        Double tmpN = (double) tmpNL;
+         
         
         //New max
         if (input > getMax())
