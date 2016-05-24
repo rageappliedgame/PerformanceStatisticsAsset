@@ -256,7 +256,6 @@ public class Outputter {
                         df.format(groupTime.distributionSet.get(i).getKurtosis()) + "\t" +
                         df.format(groupTime.distributionSet.get(i).getN())
                         );
-                    
                 }
                 System.out.println("Interpretation:");
                 System.out.println(interpretation);
