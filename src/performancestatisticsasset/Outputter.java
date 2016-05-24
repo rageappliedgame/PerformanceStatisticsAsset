@@ -38,6 +38,8 @@ public class Outputter {
     //When data is received, it is transformed into a suitable output format and then output
     //Currently, only TResults, targetPlayers, performancelists, distributions, and distributionlists are supported for output
     
+    
+    //The output for ProgressOverTrials for Group or Task
     void output(String GroupOrTask,String targetGroup,DistributionSet distSet1,DistributionSet distSet2) {
         //Currently, only console output is supported
         Interpreter interpretation = new Interpreter();
@@ -115,6 +117,7 @@ public class Outputter {
         }
     }
     
+    //The output for GroupCompare for Group or Task
     void output(String GroupOrTask,String targetGroup1,String targetGroup2,ResultSet resultSet1, ResultSet resultSet2) {
         //Currently, only console output is supported
         Interpreter interpretation = new Interpreter();
