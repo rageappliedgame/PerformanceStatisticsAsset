@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 public class DataController {
     //A set of record and associated functions for creation and management
     private String topic = "Student";
-    private String analysisType = "ProgressOverTrials";
+    private String analysisType = "GroupCompare";
     private File dataSource;
     private RecordList loadedData;
     private PerformanceList studentTime;
