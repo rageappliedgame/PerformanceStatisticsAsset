@@ -25,8 +25,10 @@ import java.io.InputStreamReader;
  */
 public class DataController {
     //A set of record and associated functions for creation and management
-    private String topic = "Student";
-    private String analysisType = "GroupCompare";
+    // topic options: Student Group Task
+    private String topic = "Student"; 
+    // analysisType options: Student(ProgressOverTrials GroupCompare) Group(ProgressOverTrials GroupCompare) Task(Overview TaskCompare)
+    private String analysisType = "GroupCompare"; 
     private File dataSource;
     private RecordList loadedData;
     private PerformanceList studentTime;
@@ -163,7 +165,7 @@ public class DataController {
                         if ((!"Overview".equals(input)) && (!"TaskCompare".equals(input))) {
                             System.out.println("Incorrect input");
                             System.out.println();
-                            System.out.println("Select analysis type: (Overview|TaskCompare)");
+                            System.out.println("Select analysis type: (TaskOverview|TaskCompare)");
                         } else
                             System.out.println();
                     }

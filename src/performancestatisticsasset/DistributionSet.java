@@ -75,7 +75,7 @@ public class DistributionSet {
     }
     
     public void setDistributionSet(String targetTask, String targetMeasure, RecordList dataSet) {
-        //Determine the number of trials selected by task
+        //Determine the number of the highest trial selected by task
         int trials = 0;
         int len = dataSet.records.size();
         for (int i = 0;i < len;i++) {
