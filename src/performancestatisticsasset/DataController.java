@@ -28,7 +28,7 @@ public class DataController {
     // topic options: Student Group Task
     private String topic = "Student"; 
     // analysisType options: Student(ProgressOverTrials GroupCompare) Group(ProgressOverTrials GroupCompare) Task(Overview TaskCompare)
-    private String analysisType = "GroupCompare"; 
+    private String analysisType = "ProgressOverTrials"; 
     private File dataSource;
     private RecordList loadedData;
     private PerformanceList studentTime;
@@ -316,7 +316,7 @@ public class DataController {
     public final RecordList loadDataFromCSV() {
         //Set default datasource
         if (dataSource == null)
-            dataSource = new File("c:\\FakeData.csv");
+            dataSource = new File("c:\\ExampleData.csv");
         
         //Collect the input from the csv
         if (dataSource != null) {
