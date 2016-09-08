@@ -48,6 +48,7 @@ public class DataController {
     private Outputter outputter;
     protected String delimiter = ";";
     
+    // Test
     protected void setSelectedGame(String input) {
         selectedGame = input;
     }
