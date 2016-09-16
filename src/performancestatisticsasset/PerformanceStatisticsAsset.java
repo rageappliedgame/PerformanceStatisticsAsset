@@ -27,8 +27,11 @@ public class PerformanceStatisticsAsset {
         //This class is included for testing purposes
         DataController dataController = new DataController();
         
-        //dataController.setDataSource();
-        //dataController.chooseDataAnalysis();
+        // For automated analysis comment out the following two lines of code and make sure
+        // the configuration is set correctly in DataController.java
+        dataController.setDataSource();
+        dataController.chooseDataAnalysis();
+        
         dataController.loadDataFromCSV(); // If no datasource or analysis is set, this will perform a default load        
         dataController.performSelectedAnalysis();
         
